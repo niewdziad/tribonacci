@@ -1,0 +1,14 @@
+def tribonacci(length=8, signature=(0, 1, 1)):
+    if length == 0:
+        return []
+    elif length <= 3:
+        return list(signature)[:length]
+    
+    result = list(signature)
+    for i in range(3, length):
+        next_num = sum(result[-3:])
+        result.append(next_num)
+    
+    return result
+
+print(tribonacci())  # Domyślnie: [0, 1, 1, 2, 4, 7, 13, 24]
